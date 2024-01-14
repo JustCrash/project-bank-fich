@@ -1,4 +1,5 @@
 import json
+import os
 from datetime import datetime
 
 
@@ -61,7 +62,8 @@ def print_last_5_transactions():
     Функция в которой мы выводим посление 5 операций,
     которые получаем из файла ../data/operations.json
     """
-    with open("../data/operations.json", "r", encoding="utf-8") as file:
+    file_path = os.path.join(os.path.dirname(__file__), "../data/operations.json")
+    with open(file_path, "r", encoding="utf-8") as file:
         operations = json.load(file)
     last_5_transactions = operations[-5:]
     for transaction in reversed(last_5_transactions):
