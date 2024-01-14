@@ -1,5 +1,6 @@
 import pytest
 import json
+import os
 from src.functions import mask_card_number, mask_account_number, format_date, print_last_5_transactions
 
 
@@ -43,7 +44,8 @@ def test_print_last_5_transactions(capsys):
     <откуда> -> <куда>
     <сумма перевода> <валюта>
     """
-    with open("../data/operations.json", "r", encoding="utf-8") as file:
+    file_path = os.path.join(os.path.dirname(__file__), "../data/operations.json")
+    with open(file_path, "r", encoding="utf-8") as file:
         json.load(file)
 
     print_last_5_transactions()
