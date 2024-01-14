@@ -65,8 +65,8 @@ def print_last_5_transactions():
     file_path = os.path.join(os.path.dirname(__file__), "../data/operations.json")
     with open(file_path, "r", encoding="utf-8") as file:
         operations = json.load(file)
-    last_5_transactions = operations[-5:]
-    for transaction in reversed(last_5_transactions):
+    last_5_transactions = operations[:5]
+    for transaction in last_5_transactions:
         if transaction['state'] == 'EXECUTED':
             masked_number = mask_card_number(transaction.get('from', ''))
             to_masked = mask_account_number(transaction['to'])
