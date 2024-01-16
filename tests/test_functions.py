@@ -44,7 +44,7 @@ def test_print_last_5_transactions(capsys):
     <откуда> -> <куда>
     <сумма перевода> <валюта>
     """
-    file_path = os.path.join(os.path.dirname(__file__), "..", "operations.json")
+    file_path = os.path.join(os.path.dirname(__file__), "../data/operations.json")
     with open(file_path, "r", encoding="utf-8") as file:
         json.load(file)
 
