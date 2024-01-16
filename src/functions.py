@@ -17,10 +17,6 @@ def mask_card_number(card_number):
             if not card_number:
                 return ""
             *payment_system, card_number = card_number.split()
-
-            if not card_number:
-                return card
-
             card_digits = "".join(card_number.split())
             formatted_number = (card_digits[:4] + f' {card_digits[4:6]}** **** ' +
                                 card_digits[-4:])
